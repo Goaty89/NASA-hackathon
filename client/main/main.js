@@ -25,70 +25,25 @@ Router.route('/', function () {
   this.render('footer', {to: 'footer'});
 });
 
-Router.route('home', function () {
+Router.route('styles', function() {
+    this.render('header', {to: 'header'});
+    this.render('styles');
+    this.render('footer', {to: 'footer'});
+});
+
+Router.route('map', function () {
   this.render('header', {to: 'header'});
   this.render('home');
-  this.render('asideNav', {to: 'aside'});
   this.render('footer', {to: 'footer'});
 });
-Router.route('fullDetails', function () {
+Router.route('safty', function () {
   this.render('header', {to: 'header'});
   this.render('fullDetails');
   this.render('footer', {to: 'footer'});
 });
-Router.route('adminDetailPage', function () {
+Router.route('locations', function () {
   this.render('header', {to: 'header'});
   this.render('adminDetailPage');
   this.render('footer', {to: 'footer'});
 });
-Router.route('beachViewPage', function () {
-  this.render('header', {to: 'header'});
-  this.render('beachViewPage');
-  this.render('footer', {to: 'footer'});
-});
-Router.route('courseComparison', function () {
-  this.render('header', {to: 'header'});
-  this.render('comparisonAside', {to: 'aside'});
-  this.render('courseComparison');
-  this.render('footer', {to: 'footer'});
-});
-Router.route('detailPage', function () {
-  this.render('header', {to: 'header'});
-  this.render('detailPage');
-  this.render('footer', {to: 'footer'});
-});
-Router.route('login', function () {
-  this.render('header', {to: 'header'});
-  this.render('login');
-  this.render('footer', {to: 'footer'});
-});
-Router.route('register', function () {
-  this.render('header', {to: 'header'});
-  this.render('register');
-  this.render('footer', {to: 'footer'});
-});
 
-Router.route('allCourseList', function () {
-  this.render('header', {to: 'header'});
-  this.render('allCourseList');
-  this.render('footer', {to: 'footer'});
-});
-Router.route('leadPage', function () {
-  this.render('header', {to: 'header'});
-  this.render('leadPage');
-  this.render('footer', {to: 'footer'});
-});
-
-Router.route('MyEnquiries', function () {
-  this.render('header', {to: 'header'});
-  this.render('myEnquiriesAside', {to: 'aside'});
-  this.render('myEnquiries');
-  this.render('footer', {to: 'footer'});
-});
-
-Router.route('AccountDetail', function () {
-  this.render('header', {to: 'header'});
-  this.render('myEnquiriesAside', {to: 'aside'});
-  this.render('myAccount');
-  this.render('footer', {to: 'footer'});
-});
