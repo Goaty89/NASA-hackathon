@@ -1,8 +1,9 @@
+import '../lib/googleMapApi.js';
+
 var map;
 var geocoder;
-var HomeIcon = "../Styles/Images/Home_30x39.png";
-var BeachIcon = "../Styles/Images/beach.png";
-var DataXMLSource = "../beach.xml"; //"../data.xml";
+var BeachIcon = "../../public/images/beach.png";
+var DataXMLSource = require("../components/constants/beach.json");
 
 function initialize() {
   var mapOptions = {
@@ -12,19 +13,16 @@ function initialize() {
     draggable: true
   };
 
-  map = new google.maps.Map(document.getElementById("map-canvas"),
+  map = new google.maps.Map(document.getElementById("map"),
     mapOptions);
 
-  console.log('==> what is my map?', map);
+  console.log('==> what is my map?', map, document.getElementById("map"));
 
   geocoder = new google.maps.Geocoder();
   getLocation();
-  //TestAJAX();
-  GetMarkersFromXML();
-  //var marker = new google.maps.Marker({
-  //  position: { lat: 3.204531, lng: 101.736072 },
-  //  map: map
-  //});
+
+  //GetMarkersFromXML();
+  GetMarkersFromJSON();
 }
 
 function getLocation() {
@@ -40,36 +38,12 @@ function showPosition(position) {
   var lng = position.coords.longitude;
 
   var currentPosition = new google.maps.LatLng(lat, lng);
-  //var currentPosition = new google.maps.
-  console.log(currentPosition);
-  //var myLatlng = new google.maps.LatLng(37.4419, -122.1419);
 
   map.setCenter(currentPosition);
-  //map.setCenter(myLatlng);
-
-  //AddMarker(lat, lng, map);
-  //AddMarker(lat-1, lng-1, map, HomeIcon);
-  //AddMarker(2.940984,101.808876,map,HomeIcon);
-  //var marker = new google.maps.Marker({
-  //  position: { lat: lat, lng: lng },
-  //  map: map
-  //});
-}
-
-function AddMarker(lat, lng, map) {
-  return new google.maps.Marker({
-    position: new google.maps.LatLng(lat, lng),
-    map: map,
-    title: "You are here!",
-    //animation: google.maps.Animation.BOUNCE,
-  });
 }
 
 function AddMarker(lat, lng, title, icon) {
-  //var iconMarker = {
-  //  url: icon, // url
-  //  scaledSize: new google.maps.Size(80, 80)
-  //};
+  console.log('==> AddMarker:', lat, lng, title, icon);
 
   return new google.maps.Marker({
     position: new google.maps.LatLng(lat, lng),
@@ -84,10 +58,6 @@ function CodeAddress(address) {
   geocoder.geocode({ 'address': address }, function (results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);
-      //var marker = new google.maps.Marker({
-      //	map: map,
-      //	position: results[0].geometry.location
-      //});
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
@@ -95,15 +65,15 @@ function CodeAddress(address) {
 }
 
 function GetMarkersFromXML() {
+  console.log('==> GetMarkersFromXML');
   // For more information on doing XMLHR with jQuery, see these resources:
   // http://net.tutsplus.com/tutorials/javascript-ajax/use-jquery-to-retrieve-data-from-an-xml-file/
   // http://marcgrabanski.com/article/jquery-makes-parsing-xml-easy
   jQuery.get(DataXMLSource, {}, function (data) {
     jQuery(data).find("marker").each(function () {
+
       var marker = jQuery(this);
-      //var latlng = new google.maps.LatLng(parseFloat(marker.attr("lat")),
-      //                            parseFloat(marker.attr("lng")));
-      //var marker = new google.maps.Marker({position: latlng, map: map});
+      console.log('==> marker:', marker);
 
       var dataMarker = AddMarker(parseFloat(marker.attr("lat")), parseFloat(marker.attr("lng")), marker.attr("title"), BeachIcon);
 
@@ -157,5 +127,30 @@ function TestAJAX() {
   });
 }
 
-console.log('==> trying to load map');
+function GetMarkersFromJSON() {
+  DataXMLSource.forEach(function (item) {
+    var dataMarker = AddMarker(parseFloat(item.lat), parseFloat(item.lng), item.title, "/images/beach.png");
+
+    var infowindow = new google.maps.InfoWindow(
+      {
+        content: "<a target='blank' href='" + item.link + "'>" + item.title + "</a>" + "<br />",
+        //+ marker.attr("lat") + "," + marker.attr("lng"),
+        size: new google.maps.Size(50, 50)
+      });
+    //{
+    //	//content: "<a target='blank' href='" + marker.attr("link") + "'>" + marker.attr("title") + "</a>",
+    //	content: marker.attr("title"),
+    //	size: new google.maps.Size(50, 50)
+    //});
+
+    //infowindow.open(map, dataMarker);
+
+    google.maps.event.addListener(dataMarker, 'click', function () {
+      map.setZoom(10);
+      map.setCenter(dataMarker.getPosition());
+      infowindow.open(map, dataMarker)
+    });
+  });
+}
+
 google.maps.event.addDomListener(window, 'load', initialize);

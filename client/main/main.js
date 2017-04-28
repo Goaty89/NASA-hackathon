@@ -25,7 +25,7 @@ Router.route('/', function () {
   this.render('footer', {to: 'footer'});
 });
 
-Router.route('home', function () {
+Router.route('map', function () {
   this.render('header', {to: 'header'});
   this.render('home');
   this.render('footer', {to: 'footer'});
