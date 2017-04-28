@@ -3,5 +3,12 @@
         Beach View Page
     </h1>
     <img class="{{styles.beachBackgroundImg}}" src='/images/beach.jpg'/>
-   
+   {{> HoursDurationFilter}}
+</template>
+<template name="HoursDurationFilter">
+    <div class="{{styles.filterContent}}">
+        <label for="slider"></label>
+        <div id="slider"></div>
+         <p>Time : {{slider}}</p>
+    </div>
 </template>
