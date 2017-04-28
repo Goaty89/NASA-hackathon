@@ -28,7 +28,6 @@ Router.route('/', function () {
 Router.route('home', function () {
   this.render('header', {to: 'header'});
   this.render('home');
-  this.render('asideNav', {to: 'aside'});
   this.render('footer', {to: 'footer'});
 });
 Router.route('fullDetails', function () {
