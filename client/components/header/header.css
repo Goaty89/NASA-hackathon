@@ -18,9 +18,15 @@
   margin-left: 1rem;
 }
 
+.imgToast{
+    height:120px;
+    width:120px;
+}
+
 .nav {
     composes: container from "../../style.css";
-    background-color: #1c3f94;
+    background: #77b8cb;
+    color: #09556c;
 }
 
 nav {
@@ -32,7 +38,7 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: #fff;
+    color: #09556c;
     padding: 0.9em 0;
 }
 
@@ -40,7 +46,7 @@ nav a {
     composes: container from "../../style.css";
     background: url("http://cdn2.hubspot.net/hubfs/1915995/bg/blue-bg.png?t=1468484873016") center repeat;
     text-align: center;
-    color: #fff;
+    color: #09556c;
 }
 .rightCorner{
     display: flex;

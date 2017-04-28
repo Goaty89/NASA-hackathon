@@ -21,8 +21,7 @@ Router.configure({
 
 Router.route('/', function () {
   this.render('header', {to: 'header'});
-  this.render('page');
-  this.render('asideNav', {to: 'aside'});
+  this.render('beachViewPage');
   this.render('footer', {to: 'footer'});
 });
 
@@ -40,6 +39,11 @@ Router.route('fullDetails', function () {
 Router.route('adminDetailPage', function () {
   this.render('header', {to: 'header'});
   this.render('adminDetailPage');
+  this.render('footer', {to: 'footer'});
+});
+Router.route('beachViewPage', function () {
+  this.render('header', {to: 'header'});
+  this.render('beachViewPage');
   this.render('footer', {to: 'footer'});
 });
 Router.route('courseComparison', function () {

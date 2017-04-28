@@ -1,8 +1,8 @@
 .footerWrapper {
     composes: container from "../../style.css";
     padding-top: 1rem;
-    background: #1c3f94;
-    color: #fff;
+    background: #77b8cb;
+    color: #09556c;
 }
 
 .row1,
