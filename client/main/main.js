@@ -43,6 +43,18 @@ Router.route('/map/cenang', function () {
   this.render('footer', {to: 'footer'});
 });
 
+Router.route('/safetyLocationPage', function () {
+  this.render('header', {to: 'header'});
+  this.render('safetyLocationPage');
+  this.render('footer', {to: 'footer'});
+});
+
+Router.route('/safetyInformationPage', function () {
+  this.render('header', {to: 'header'});
+  this.render('safetyInformationPage');
+  this.render('footer', {to: 'footer'});
+});
+
 Router.route('/map/cherating', function () {
   this.render('header', {to: 'header'});
   this.render('cheratingBeachViewPage');
