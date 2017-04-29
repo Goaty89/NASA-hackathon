@@ -59,7 +59,8 @@ if (Meteor.isClient) {
       return PREVIEWTIME;
     },
     'isSafetyRecommendationsDisplay': function () {
-      return CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 3 ? true : false;
+      return CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 3 ||
+        CHERATING_DATA[Session.get("date")][Session.get("slider")].isRain;
     },
     'sunBathTimeSuggestion': function () {
       var returnValue = '1 Hours';
@@ -83,14 +84,14 @@ if (Meteor.isClient) {
       return CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 6;
     },
     'needShades': function () {
-      return CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 8;
+      return CHERATING_DATA[Session.get("date")][Session.get("slider")].isRain || CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 8;
     },
     'warningMessage': function () {
       if (CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 11) {
         return styles.showWarningMessage;
       }
     },
-    'skinResult':function(){
+    'skinResult': function () {
       return Session.get('skinDamage');
     }
   });
@@ -114,11 +115,11 @@ if (Meteor.isClient) {
       if (UVIndex >= 3 && UVIndex <= 4) {
         if (timeValue >= 45 && timeValue < 60) {
           $("#imgToast").attr("src", "/images/toast-yellow.png");
-          return Session.set('skinDamage','Good and Enjoy');
+          return Session.set('skinDamage', 'Good and Enjoy');
         }
         else if (timeValue >= 60) {
           $("#imgToast").attr("src", "/images/toast-dark.png");
-          return Session.set('skinDamage','Skin burnt');
+          return Session.set('skinDamage', 'Skin burnt');
         }
         else {
           $("#imgToast").attr("src", "/images/toast-white.png");
@@ -126,15 +127,15 @@ if (Meteor.isClient) {
       } else if (UVIndex >= 5 && UVIndex <= 6) {
         if (timeValue >= 30 && timeValue < 45) {
           $("#imgToast").attr("src", "/images/toast-yellow.png");
-          return Session.set('skinDamage','Good and Enjoy');
+          return Session.set('skinDamage', 'Good and Enjoy');
         }
         else if (timeValue >= 45 && timeValue < 60) {
           $("#imgToast").attr("src", "/images/toast-dark.png");
-          return Session.set('skinDamage','Skin burnt');
+          return Session.set('skinDamage', 'Skin burnt');
         }
         else if (timeValue >= 60) {
           $("#imgToast").attr("src", "/images/toast-dark-sweat.png");
-          return Session.set('skinDamage','Aww.. skin hurt');
+          return Session.set('skinDamage', 'Aww.. skin hurt');
         }
         else {
           $("#imgToast").attr("src", "/images/toast-white.png");
@@ -143,15 +144,15 @@ if (Meteor.isClient) {
         returnValue = '15 min'
         if (timeValue >= 15 && timeValue < 30) {
           $("#imgToast").attr("src", "/images/toast-yellow.png");
-          return Session.set('skinDamage','Good and Enjoy');
+          return Session.set('skinDamage', 'Good and Enjoy');
         }
         else if (timeValue >= 30 && timeValue < 45) {
           $("#imgToast").attr("src", "/images/toast-dark.png");
-          return Session.set('skinDamage','Skin burnt');
+          return Session.set('skinDamage', 'Skin burnt');
         }
         else if (timeValue >= 45) {
           $("#imgToast").attr("src", "/images/toast-dark-sweat.png");
-          return Session.set('skinDamage','Aww.. skin hurt');
+          return Session.set('skinDamage', 'Aww.. skin hurt');
         }
         else {
           $("#imgToast").attr("src", "/images/toast-white.png");
@@ -160,15 +161,15 @@ if (Meteor.isClient) {
         returnValue = '< 10 min'
         if (timeValue >= 10 && timeValue < 15) {
           $("#imgToast").attr("src", "/images/toast-yellow.png");
-          return Session.set('skinDamage','Good and Enjoy');
+          return Session.set('skinDamage', 'Good and Enjoy');
         }
         else if (timeValue >= 15 && timeValue < 30) {
           $("#imgToast").attr("src", "/images/toast-dark.png");
-          return Session.set('skinDamage','Skin burnt');
+          return Session.set('skinDamage', 'Skin burnt');
         }
         else if (timeValue >= 30) {
           $("#imgToast").attr("src", "/images/toast-dark-sweat.png");
-          return Session.set('skinDamage','Aww.. skin hurt');
+          return Session.set('skinDamage', 'Aww.. skin hurt');
         }
         else {
           $("#imgToast").attr("src", "/images/toast-white.png");
