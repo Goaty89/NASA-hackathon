@@ -45,6 +45,7 @@ if (Meteor.isClient) {
     'suncreamFactorIs': function (factor) {
       return getScreamFactor() === factor;
     },
+    
     'needSunglass': function () {
       return CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 3;
     },
