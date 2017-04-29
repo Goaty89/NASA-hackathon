@@ -14,6 +14,7 @@ const DEFAULTMAXMONTHS = 23;
 if (Meteor.isClient) {
   Session.setDefault("slider", DEFAULTMINMONTHS);
   Template.cheratingBeachViewPage.helpers({
+    styles: styles
   });
 
   Template.cheratingBeachViewPage.onRendered(function () {

@@ -1,4 +1,68 @@
 .beachBackgroundImg{
-  height: 500px;
-  width: 650px;
+  /*height: 500px;
+  width: 650px;*/
+}
+
+.accordTitle .accordLink {
+    display: inline-block;
+    text-decoration: none;
+    display: block;
+    padding: 15px 30px;
+    background: transparent;
+    color: #333333;
+    margin: 0 0 15px;
+    color: #0a287e;
+    margin-bottom: 0;
+    border: 1px solid #666666;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    position: relative;
+    border-bottom: none;
+}
+
+.accordElem {
+  margin-top: 8px;
+}
+
+.accordElem.active .accordLink {
+    border-bottom: none;
+    color: #0a4e7e;
+}
+
+.accordContent {
+    padding: 0 30px;
+    overflow: hidden;
+    border: 1px solid #666666;
+    border-top: none;
+}
+
+.sectionHead {
+    display: block;
+    margin-bottom: 40px;
+}
+
+.imageOverlay {
+    position:relative;
+}
+
+.imageOverlay img {
+    width:100%;
+    vertical-align:top;
+}
+
+.imageOverlay:after {
+    content:'\A';
+    position:absolute;
+    width: 200px; height: 200px;
+    bottom:0; right:0;
+    background:rgba(0,0,0,0.6);
+    opacity:0;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.imageOverlay:after {
+    opacity:1;
 }

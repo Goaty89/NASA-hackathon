@@ -15,6 +15,7 @@ if (Meteor.isClient) {
   Session.setDefault("slider", DEFAULTMINMONTHS);
   
   Template.cenangBeachViewPage.helpers({
+    styles: styles
   });
 
   Template.cenangBeachViewPage.onRendered(function () {
