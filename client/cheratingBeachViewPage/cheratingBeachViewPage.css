@@ -1,4 +1,10 @@
 .beachBackgroundImg{
   height: 500px;
   width: 650px;
+  z-index: -1;
+}
+.weatherBackgroundImg{
+  position: absolute;
+  top: 22em;
+  right: 39em;
 }
