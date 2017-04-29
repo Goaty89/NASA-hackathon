@@ -65,3 +65,8 @@ Router.route('locations', function () {
   this.render('footer', {to: 'footer'});
 });
 
+Router.route('styles', function() {
+    this.render('header', {to: 'header'});
+    this.render('styles');
+    this.render('footer', {to: 'footer'});
+});
