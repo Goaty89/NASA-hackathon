@@ -44,6 +44,9 @@ if (Meteor.isClient) {
     },
     'suncreamFactorIs': function (factor) {
       return getScreamFactor() === factor;
+    },
+    'UVI':function(){
+      return CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel;
     }
   });
 

@@ -19,8 +19,12 @@
         <div class="{{styles.weatherBackgroundImg}}">
             {{#if isRain}} {{> rainingBackground}} {{/if}} {{#if isSun}} {{> sunBackground}} {{/if}}
         </div>
-
-        <img src='/images/cherating.jpg' />
+        <div style="width: 20%;height: 20%;position: absolute;top: 30em;">
+            <img id='imgToast' src='/images/toast-white.png'/>
+        </div>
+        <div>
+        </div>
+        <img src='/images/cherating.jpg' id="defaultAvata" style="width:100%" />
     </div>
     {{> HoursDurationFilter}}
     <br />
