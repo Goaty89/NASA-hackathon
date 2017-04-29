@@ -57,6 +57,8 @@
     flex-direction: column;
     width: 150px;
     transition: all 0.5s;
+    text-align: center;
+    font-size: 16px;
 }
 
 .sectionHead {
