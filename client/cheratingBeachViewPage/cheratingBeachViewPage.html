@@ -18,16 +18,17 @@
         <div class="{{styles.weatherBackgroundImg}}">
             {{#if isRain}} {{> rainingBackground}} {{/if}} {{#if isSun}} {{> sunBackground}} {{/if}}
         </div>
+
         <div class="{{styles.weatherBackgroundImg2}}">
             {{#if isWind}} {{> windBackground}} {{/if}}
         </div>
-        
+
         <div style="width: 20%;height: 20%;position: absolute;top: 30em; z-index: 1;">
-            <img id='imgToast' src='/images/toast-white.png'/>
+            <img id='imgToast' src='/images/toast-white.png' />
         </div>
 
         <div data-content="Warning: Please stay indoor unless you have applied sunscreen" class="{{warningMessage}}">
-            <img src='/images/cherating.jpg' style="width:100%"/>
+            <img src='/images/cherating.jpg' style="width:100%" />
         </div>
     </div>
     {{> HoursDurationFilter}}
@@ -36,20 +37,28 @@
         <div class="{{styles.accordTitle}}">
             <h3 class="{{styles.accordLink}}">Suggest Sun Bath : {{sunBathTimeSuggestion}} </h3>
         </div>
+        <div class="{{styles.accordTitle}}">
+            <h3 class="{{styles.accordLink}}">Preview Sun Bath result:
+                <select class="{{styles.qualificationLevelDropDown}}" name="dropDownTime" id="dropDownTime" style="font-size:large">
+    			  {{#each providerTimeLists}}
+    				    <option value="{{key}}">{{label}}</option>
+    			  {{/each}}
+    			</select>
+                {{skinResult}}
+            </h3>
+        </div>
         {{#if isSafetyRecommendationsDisplay}}
         <div class="{{styles.accordTitle}}">
             <h3 class="{{styles.accordLink}}">Safety recommendations</h3>
         </div>
         <div class="{{styles.accordContent}}">
-            {{#if needSunglass}} <div class="{{styles.imageContainer}}"><img src="/images/sunglass.png" /></div>{{/if}}
-
-            {{#if suncreamFactorIs "30"}} <div class="{{styles.imageContainer}}"><img src="/images/sunscreen-30.jpg" /></div>{{/if}}
-            {{#if suncreamFactorIs "20"}} <div class="{{styles.imageContainer}}"><img src="/images/sunscreen-20.jpg" /></div>{{/if}}
-            {{#if suncreamFactorIs "10"}} <div class="{{styles.imageContainer}}"><img src="/images/sunscreen-10.jpg" /></div>{{/if}}
-            
-            {{#if needHat}} <div class="{{styles.imageContainer}}"><img src="/images/hat.jpeg" /></div>{{/if}}
-
-            {{#if needShades}} <div class="{{styles.imageContainer}}"><img src="/images/shades.jpg" /></div>{{/if}}
+            {{#if needSunglass}}
+            <div class="{{styles.imageContainer}}"><img src="/images/sunglass.png" /></div>{{/if}} {{#if suncreamFactorIs "30"}}
+            <div class="{{styles.imageContainer}}"><img src="/images/sunscreen-30.jpg" /></div>{{/if}} {{#if suncreamFactorIs "20"}}
+            <div class="{{styles.imageContainer}}"><img src="/images/sunscreen-20.jpg" /></div>{{/if}} {{#if suncreamFactorIs "10"}}
+            <div class="{{styles.imageContainer}}"><img src="/images/sunscreen-10.jpg" /></div>{{/if}} {{#if needHat}}
+            <div class="{{styles.imageContainer}}"><img src="/images/hat.jpeg" /></div>{{/if}} {{#if needShades}}
+            <div class="{{styles.imageContainer}}"><img src="/images/shades.jpg" /></div>{{/if}}
         </div>
         {{else}}
         <div class="{{styles.accordContentBottomLine}}"></div>
