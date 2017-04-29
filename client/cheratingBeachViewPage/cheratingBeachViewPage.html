@@ -16,12 +16,12 @@
     <br />
     <div class="{{styles.accordElem}}">
         <div class="{{styles.accordTitle}}">
-            <h3 class="{{styles.accordLink}}">Suggestions</h3>
+            <h3 class="{{styles.accordLink}}">Safety recommendations {{suncreamFactor}}</h3>
         </div>
         <div class="{{styles.accordContent}}">
-            <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non,
-                semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris
-                sit amet orci. Aenean dignissim pellentesque felis.</p>
+            {{#if suncreamFactorIs "30"}} <div><img src="/images/sunscreen-30.jpg" /></div>{{/if}}
+            {{#if suncreamFactorIs "20"}} <div><img src="/images/sunscreen-20.jpg" /></div>{{/if}}
+            {{#if suncreamFactorIs "10"}} <div><img src="/images/sunscreen-10.jpg" /></div>{{/if}}
         </div>
     </div>
 </template>

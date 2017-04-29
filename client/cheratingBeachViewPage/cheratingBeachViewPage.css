@@ -37,6 +37,7 @@
     overflow: hidden;
     border: 1px solid #666666;
     border-top: none;
+    min-height: 200px;
 }
 
 .sectionHead {
