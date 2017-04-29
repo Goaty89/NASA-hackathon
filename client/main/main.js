@@ -21,7 +21,7 @@ Router.configure({
 
 Router.route('/', function () {
   this.render('header', {to: 'header'});
-  this.render('beachViewPage');
+  this.render('home');
   this.render('footer', {to: 'footer'});
 });
 
@@ -40,6 +40,18 @@ Router.route('/map', function () {
 Router.route('/map/cenang', function () {
   this.render('header', {to: 'header'});
   this.render('cenangBeachViewPage');
+  this.render('footer', {to: 'footer'});
+});
+
+Router.route('/safetyLocationPage', function () {
+  this.render('header', {to: 'header'});
+  this.render('safetyLocationPage');
+  this.render('footer', {to: 'footer'});
+});
+
+Router.route('/safetyInformationPage', function () {
+  this.render('header', {to: 'header'});
+  this.render('safetyInformationPage');
   this.render('footer', {to: 'footer'});
 });
 

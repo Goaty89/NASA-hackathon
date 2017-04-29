@@ -23,10 +23,10 @@
 
 .filterContent {
     padding: 0.6rem 1rem 0;
-    color: #1E3E93;
+    color: #ff8800;
     font-family: inherit;
     font-weight: 600;
-    font-size: smaller;
+    font-size: x-large;
 }
 
 .filterContent:last-child {
