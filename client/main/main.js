@@ -31,13 +31,19 @@ Router.route('ref', function () {
   this.render('footer', {to: 'footer'});
 });
 
-Router.route('cenang', function () {
+Router.route('/map', function () {
+  this.render('header', {to: 'header'});
+  this.render('home');
+  this.render('footer', {to: 'footer'});
+});
+
+Router.route('/map/cenang', function () {
   this.render('header', {to: 'header'});
   this.render('cenangBeachViewPage');
   this.render('footer', {to: 'footer'});
 });
 
-Router.route('cherating', function () {
+Router.route('/map/cherating', function () {
   this.render('header', {to: 'header'});
   this.render('cheratingBeachViewPage');
   this.render('footer', {to: 'footer'});
