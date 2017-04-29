@@ -1,7 +1,9 @@
 <template name="header">
     <div class="{{styles.headerWrapper}}">
         <div class="{{styles.topLayerContainer}}">
-            <img src="/images/Toast.png" alt="Toast" class="{{styles.imgToast}}"/>
+            <a href="/">
+                <img src="/images/Toast.png" alt="Toast" class="{{styles.imgToast}}"/>
+            </a>
             <div class="{{styles.rightCorner}}">
                 <div class="{{styles.rightCorner}}">
                     <input type="text" class="" />
@@ -14,14 +16,11 @@
         </div>
         <div class="{{styles.nav}}">
             <nav>
-                <a href=#>Map</a>
-                <a href=#>Safty Information</a>
-                <a href=#>Safty Area</a>
+                <a href="/map">Map</a>
+                <a href="/safty">Safety Information</a>
+                <a href="/locations">Safety Area</a>
             </nav>
         </div>
-        <!--div class="{{styles.advWrapper}}">
-            <h1>Title</h1>
-        </div-->
     </div>
 </template>
 <template name="signInSystem">
