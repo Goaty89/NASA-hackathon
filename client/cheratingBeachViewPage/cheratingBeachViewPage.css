@@ -33,10 +33,20 @@
 }
 
 .accordContent {
+    display: flex;
     padding: 0 30px;
     overflow: hidden;
     border: 1px solid #666666;
     border-top: none;
+    min-height: 200px;
+}
+
+.imageContainer {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 150px;
 }
 
 .sectionHead {
@@ -44,8 +54,19 @@
     margin-bottom: 40px;
 }
 
-.imageOverlay {
+/*.imageOverlay {
     position:relative;
+}
+
+.imageOverlay img {
+    width:100%;
+    vertical-align:top;
+}*/
+
+/*.imageOverlay {
+    position:relative;
+    width:500px;
+    height:650px;
 }
 
 .imageOverlay img {
@@ -54,18 +75,50 @@
 }
 
 .imageOverlay:after {
-    content:'\A';
+    content:'\Warning: Please stay at indoor!!!';
     position:absolute;
-    width: 200px; height: 200px;
-    bottom:0; right:0;
+    width: 100%; height: 50px;
+    bottom:0;
     background:rgba(0,0,0,0.6);
-    opacity:0;
+    opacity:1;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
+}*/
+
+.imageOverlay {
+    position:relative;
+}
+.imageOverlay img {
+    width:100%;
+    vertical-align:top;
+}
+.imageOverlay:after, .imageOverlay:before {
+    position:absolute;
+    opacity:1;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.imageOverlay:before {
+    content: attr(data-content);
+    width:100%;
+    color:#fff;
+    z-index:1;
+    bottom:0;
+    padding:4px 10px;
+    text-align:center;
+    background:red;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
 }
 
 .weatherBackgroundImg{
   position: absolute;
   top: 22em;
   right: 39em;
+  z-index: 1;
+}
+
+.btnGroup {
+    z-index: 1;
 }
