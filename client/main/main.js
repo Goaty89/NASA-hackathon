@@ -25,13 +25,31 @@ Router.route('/', function () {
   this.render('footer', {to: 'footer'});
 });
 
-Router.route('styles', function() {
-    this.render('header', {to: 'header'});
-    this.render('styles');
-    this.render('footer', {to: 'footer'});
+Router.route('ref', function () {
+  this.render('header', {to: 'header'});
+  this.render('page');
+  this.render('footer', {to: 'footer'});
 });
 
-Router.route('map', function () {
+Router.route('/map', function () {
+  this.render('header', {to: 'header'});
+  this.render('home');
+  this.render('footer', {to: 'footer'});
+});
+
+Router.route('/map/cenang', function () {
+  this.render('header', {to: 'header'});
+  this.render('cenangBeachViewPage');
+  this.render('footer', {to: 'footer'});
+});
+
+Router.route('/map/cherating', function () {
+  this.render('header', {to: 'header'});
+  this.render('cheratingBeachViewPage');
+  this.render('footer', {to: 'footer'});
+});
+
+Router.route('home', function () {
   this.render('header', {to: 'header'});
   this.render('home');
   this.render('footer', {to: 'footer'});
@@ -47,3 +65,8 @@ Router.route('locations', function () {
   this.render('footer', {to: 'footer'});
 });
 
+Router.route('styles', function() {
+    this.render('header', {to: 'header'});
+    this.render('styles');
+    this.render('footer', {to: 'footer'});
+});

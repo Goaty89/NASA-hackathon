@@ -1,0 +1,9 @@
+<template name="date">
+    <div class="{{styles.date}}">
+        <select id="date-select">
+            {{#each date}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
+    </div>
+</template>
