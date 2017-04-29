@@ -40,6 +40,7 @@ if (Meteor.isClient) {
 
   Session.setDefault("slider", DEFAULTMINMONTHS);
   Session.setDefault("date", 'date1');
+  Session.setDefault('skinTone','fair');
   Template.cheratingBeachViewPage.helpers({
     styles: styles,
     done: function () {
@@ -82,16 +83,35 @@ if (Meteor.isClient) {
         CHERATING_DATA[Session.get("date")][Session.get("slider")].isRain;
     },
     'sunBathTimeSuggestion': function () {
-      var returnValue = '1 Hours';
+      var returnValue = 60;
       var UVIndex = CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel;
+      
       if (UVIndex >= 3 && UVIndex <= 4) {
-        returnValue = '45 mins'
+        returnValue = 45
       } else if (UVIndex >= 5 && UVIndex <= 6) {
-        returnValue = '30 min'
+        returnValue = 30
       } else if (UVIndex >= 7 && UVIndex <= 9) {
-        returnValue = '15 min'
+        returnValue = 15
       } else if (UVIndex >= 10) {
-        returnValue = '< 10 min'
+        returnValue = 10
+      }
+      var skintone = Session.get('skinTone');
+      if(skintone == "normal"){
+        timeValue += 15;
+      } else if (skintone == "dark"){
+        timeValue += 30;
+      }
+      if(returnValue>60){
+        var totalMin = returnValue;
+        var Hour = parseInt(totalMin / 60);
+        returnValue = Hour+" Hour";
+        if(totalMin - (Hour * 60)>1){
+          returnValue += totalMin - (Hour * 60) + " Min";
+        }
+      }
+      else
+      {
+        returnValue = returnValue + "min";
       }
       return returnValue;
     },
@@ -151,12 +171,15 @@ if (Meteor.isClient) {
     },
     "change #skin1": function () {
       Session.set("timer",10);
+      Session.set('skinTone','fair');
     },
     "change #skin2": function () {
       Session.set("timer",20);
+      Session.set('skinTone','normal');
     },
     "change #skin3": function () {
       Session.set("timer",30);
+      Session.set('skinTone','dark');
     },
     "change #date1": function () {
       Session.set("date", 'date1');
@@ -186,6 +209,12 @@ if (Meteor.isClient) {
       }
       var timeValue = $("#dropDownTime").val();
       var UVIndex = CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel;
+      var skintone = Session.get('skinTone');
+      if(skintone == "normal"){
+        timeValue -= 15;
+      } else if (skintone == "dark"){
+        timeValue -= 30;
+      }
       if (UVIndex >= 3 && UVIndex <= 4) {
         if (timeValue >= 45 && timeValue < 60) {
           goodCare();
