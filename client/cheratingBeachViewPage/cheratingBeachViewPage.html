@@ -31,21 +31,25 @@
     <br />
     <div class="{{styles.accordElem}}">
         <div class="{{styles.accordTitle}}">
+            <h3 class="{{styles.accordLink}}">Suggest Sun Bath : {{sunBathTimeSuggestion}} </h3>
+        </div>
+        {{#if isSafetyRecommendationsDisplay}}
+        <div class="{{styles.accordTitle}}">
             <h3 class="{{styles.accordLink}}">Safety recommendations</h3>
         </div>
-        <div class="{{styles.accordTitle}}">
-            <h3 class="{{styles.accordLink}}">Suggest Sun Bath </h3> {{sunBathTimeSuggestion}}
-        </div>
         <div class="{{styles.accordContent}}">
+            {{#if needSunglass}} <div class="{{styles.imageContainer}}"><img src="/images/sunglass.png" /></div>{{/if}}
+
             {{#if suncreamFactorIs "30"}} <div class="{{styles.imageContainer}}"><img src="/images/sunscreen-30.jpg" /></div>{{/if}}
             {{#if suncreamFactorIs "20"}} <div class="{{styles.imageContainer}}"><img src="/images/sunscreen-20.jpg" /></div>{{/if}}
             {{#if suncreamFactorIs "10"}} <div class="{{styles.imageContainer}}"><img src="/images/sunscreen-10.jpg" /></div>{{/if}}
-
-            {{#if needSunglass}} <div class="{{styles.imageContainer}}"><img src="/images/sunglass.png" /></div>{{/if}}
-
+            
             {{#if needHat}} <div class="{{styles.imageContainer}}"><img src="/images/hat.jpeg" /></div>{{/if}}
 
             {{#if needShades}} <div class="{{styles.imageContainer}}"><img src="/images/shades.jpg" /></div>{{/if}}
         </div>
+        {{else}}
+        <div class="{{styles.accordContentBottomLine}}"></div>
+        {{/if}}
     </div>
 </template>

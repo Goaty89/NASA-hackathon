@@ -21,7 +21,7 @@ Router.configure({
 
 Router.route('/', function () {
   this.render('header', {to: 'header'});
-  this.render('beachViewPage');
+  this.render('home');
   this.render('footer', {to: 'footer'});
 });
 
