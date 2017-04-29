@@ -1,6 +1,7 @@
 .beachBackgroundImg{
-  /*height: 500px;
-  width: 650px;*/
+    height: 500px;
+  width: 650px;
+  z-index: -1;
 }
 
 .accordTitle .accordLink {
@@ -63,6 +64,8 @@
     -webkit-transition: all 0.5s;
 }
 
-.imageOverlay:after {
-    opacity:1;
+.weatherBackgroundImg{
+  position: absolute;
+  top: 22em;
+  right: 39em;
 }

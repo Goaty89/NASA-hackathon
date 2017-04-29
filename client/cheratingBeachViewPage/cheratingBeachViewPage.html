@@ -1,9 +1,19 @@
 <template name="cheratingBeachViewPage">
-    <h1>
-        Cherating Beach View Page
-    </h1>
-    <img class="{{styles.beachBackgroundImg}}" src='/images/cherating.jpg' /> {{> HoursDurationFilter}}
+    <div>
+        <h1>
+            Cherating Beach View Page
+        </h1>
+        <div class="{{styles.weatherBackgroundImg}}">
+            {{#if isRain}} {{> rainingBackground}} {{/if}} 
+            {{#if isSun}} {{> sunBackground}} {{/if}}
+        </div>
 
+        <img src='/images/cherating.jpg' />
+    </div>
+
+    {{> HoursDurationFilter}}
+
+    <br />
     <div class="{{styles.accordElem}}">
         <div class="{{styles.accordTitle}}">
             <h3 class="{{styles.accordLink}}">Suggestions</h3>

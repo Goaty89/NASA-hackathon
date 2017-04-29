@@ -8,8 +8,8 @@ import {
   CATEGORY_LIST
 } from '../components/constants/FormData';
 
-const DEFAULTMINMONTHS = 9;
-const DEFAULTMAXMONTHS = 23;
+const DEFAULTMINMONTHS = 6;
+const DEFAULTMAXMONTHS = 22;
 
 if (Meteor.isClient) {
   Session.setDefault("slider", DEFAULTMINMONTHS);
