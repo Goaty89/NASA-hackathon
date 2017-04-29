@@ -44,6 +44,21 @@ if (Meteor.isClient) {
     },
     'suncreamFactorIs': function (factor) {
       return getScreamFactor() === factor;
+    },
+    'needSunglass': function () {
+      return CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 3;
+    },
+    'needHat': function () {
+      return CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 6;
+    },
+    'needShades': function () {
+      return CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 8;
+    },
+    'warningMessage': function () {
+      if (CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 11) {
+        console.log('==> styles.imageOverlay:', styles.imageOverlay);
+        return styles.imageOverlay;
+      }
     }
   });
 
