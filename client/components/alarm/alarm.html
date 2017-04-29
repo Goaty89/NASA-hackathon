@@ -1,0 +1,26 @@
+<template name="alarm">
+
+    {{#if finish}}
+    <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-primary active">
+            <input type="radio" name="skin" id="skin1" autocomplete="off" checked> <img src='/images/toast-white.png' class="imgSize"/>
+        </label>
+        <label class="btn btn-primary">
+            <input type="radio" name="skin" id="skin2" autocomplete="off"> <img src='/images/toast-yellow.png' class="imgSize"/>
+        </label>
+        <label class="btn btn-primary">
+            <input type="radio" name="skin" id="skin3" autocomplete="off"> <img src='/images/toast-dark.png' class="imgSize"/>
+        </label>
+    </div>
+    <button type="button" class="btn btn-info" id="start">Start</button>
+    {{else}}
+    <div class="{{styles.alarm}}">
+        {{#if done}}
+        <button type="button" class="btn btn-success" id="turnAlarm">TURN</button>
+        <button type="button" class="btn btn-danger" id="doneAlarm">STOP</button>
+        {{else}}
+        <div>{{getCountdown}} seconds left!</div>
+        {{/if}}
+    </div>
+    {{/if}}
+</template>

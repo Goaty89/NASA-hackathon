@@ -3,38 +3,49 @@
         <h1>
             Cherating Beach View Page
         </h1>
-        <div class="{{styles.weatherBackgroundImg}}">
-            {{#if isRain}} {{> rainingBackground}} {{/if}} 
-            {{#if isSun}} {{> sunBackground}} {{/if}}
-        </div>
-
-        <img src='/images/cherating.jpg' />
-    </div>
-
-    {{> HoursDurationFilter}}
-
-
-    <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-primary active">
+        <div class="btn-group {{styles.btnGroup}}" style="position:absolute" data-toggle="buttons">
+            <label class="btn btn-primary active">
             <input type="radio" name="date" id="date1" autocomplete="off" checked> 29 Apr 2017
         </label>
-        <label class="btn btn-primary">
+            <label class="btn btn-primary">
             <input type="radio" name="date" id="date2" autocomplete="off"> 30 Apr 2017
         </label>
-        <label class="btn btn-primary">
+            <label class="btn btn-primary">
             <input type="radio" name="date" id="date3" autocomplete="off"> 1 May 2017
         </label>
+        </div>
+
+        <div class="{{styles.weatherBackgroundImg}}">
+            {{#if isRain}} {{> rainingBackground}} {{/if}} {{#if isSun}} {{> sunBackground}} {{/if}}
+        </div>
+        
+        <div style="width: 20%;height: 20%;position: absolute;top: 30em; z-index: 1;">
+            <img id='imgToast' src='/images/toast-white.png'/>
+        </div>
+
+        <div data-content="Warning: Please stay indoor unless you have applied sunscreen" class="{{warningMessage}}">
+            <img src='/images/cherating.jpg' style="width:100%"/>
+        </div>
     </div>
+    {{> HoursDurationFilter}}
     <br />
     <div class="{{styles.accordElem}}">
         <div class="{{styles.accordTitle}}">
-            <h3 class="{{styles.accordLink}}">Suggestions</h3>
+            <h3 class="{{styles.accordLink}}">Safety recommendations</h3>
+        </div>
+        <div class="{{styles.accordTitle}}">
+            <h3 class="{{styles.accordLink}}">Suggest Sun Bath </h3> {{sunBathTimeSuggestion}}
         </div>
         <div class="{{styles.accordContent}}">
-            <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non,
-                semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris
-                sit amet orci. Aenean dignissim pellentesque felis.</p>
-        </div>
+            {{#if suncreamFactorIs "30"}} <div class="{{styles.imageContainer}}"><img src="/images/sunscreen-30.jpg" /></div>{{/if}}
+            {{#if suncreamFactorIs "20"}} <div class="{{styles.imageContainer}}"><img src="/images/sunscreen-20.jpg" /></div>{{/if}}
+            {{#if suncreamFactorIs "10"}} <div class="{{styles.imageContainer}}"><img src="/images/sunscreen-10.jpg" /></div>{{/if}}
 
+            {{#if needSunglass}} <div class="{{styles.imageContainer}}"><img src="/images/sunglass.png" /></div>{{/if}}
+
+            {{#if needHat}} <div class="{{styles.imageContainer}}"><img src="/images/hat.jpeg" /></div>{{/if}}
+
+            {{#if needShades}} <div class="{{styles.imageContainer}}"><img src="/images/shades.jpg" /></div>{{/if}}
+        </div>
     </div>
 </template>

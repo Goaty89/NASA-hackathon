@@ -1,240 +1,65 @@
 import styles from './cheratingBeachViewPage.css';
 import {
-  MONTH_LIST,
-  QUALIFICATION_LIST,
-  DELIVERY_MODE_LIST,
-  STUDY_MODE_LIST,
-  PROVIDER_LIST,
-  CATEGORY_LIST
+  CHERATING_DATA
 } from '../components/constants/FormData';
-
-const dataSet ={
-  'date1':{
-    '6':{
-      'isRain':false,
-      'isSun':true
-    },
-    '7':{
-      'isRain':false,
-      'isSun':true
-    },
-    '8':{
-      'isRain':false,
-      'isSun':true
-    },
-    '9':{
-      'isRain':true,
-      'isSun':false
-    },
-    '10':{
-      'isRain':false,
-      'isSun':true
-    },
-    '11':{
-      'isRain':false,
-      'isSun':true
-    },
-    '12':{
-      'isRain':false,
-      'isSun':true
-    },
-    '13':{
-      'isRain':true,
-      'isSun':false
-    },
-    '14':{
-      'isRain':true,
-      'isSun':false
-    },
-    '15':{
-      'isRain':false,
-      'isSun':true
-    },
-    '16':{
-      'isRain':true,
-      'isSun':false
-    },
-    '17':{
-      'isRain':true,
-      'isSun':false
-    },
-    '18':{
-      'isRain':false,
-      'isSun':true
-    },
-    '19':{
-      'isRain':false,
-      'isSun':true
-    },
-    '20':{
-      'isRain':false,
-      'isSun':true
-    },
-    '21':{
-      'isRain':false,
-      'isSun':true
-    },
-    '22':{
-      'isRain':false,
-      'isSun':true
-    }
-  },
-  'date2':{
-    '6':{
-      'isRain':true,
-      'isSun':false
-    },
-    '7':{
-      'isRain':true,
-      'isSun':false
-    },
-    '8':{
-      'isRain':false,
-      'isSun':true
-    },
-    '9':{
-      'isRain':true,
-      'isSun':false
-    },
-    '10':{
-      'isRain':false,
-      'isSun':true
-    },
-    '11':{
-      'isRain':true,
-      'isSun':false
-    },
-    '12':{
-      'isRain':false,
-      'isSun':true
-    },
-    '13':{
-      'isRain':false,
-      'isSun':true
-    },
-    '14':{
-      'isRain':true,
-      'isSun':false
-    },
-    '15':{
-      'isRain':false,
-      'isSun':true
-    },
-    '16':{
-      'isRain':false,
-      'isSun':true
-    },
-    '17':{
-      'isRain':true,
-      'isSun':false
-    },
-    '18':{
-      'isRain':true,
-      'isSun':false
-    },
-    '19':{
-      'isRain':false,
-      'isSun':true
-    },
-    '20':{
-      'isRain':false,
-      'isSun':true
-    },
-    '21':{
-      'isRain':true,
-      'isSun':false
-    },
-    '22':{
-      'isRain':false,
-      'isSun':true
-    }
-  },
-  'date3':{
-    '6':{
-      'isRain':false,
-      'isSun':true
-    },
-    '7':{
-      'isRain':false,
-      'isSun':true
-    },
-    '8':{
-      'isRain':false,
-      'isSun':true
-    },
-    '9':{
-      'isRain':true,
-      'isSun':false
-    },
-    '10':{
-      'isRain':false,
-      'isSun':true
-    },
-    '11':{
-      'isRain':false,
-      'isSun':true
-    },
-    '12':{
-      'isRain':false,
-      'isSun':true
-    },
-    '13':{
-      'isRain':true,
-      'isSun':false
-    },
-    '14':{
-      'isRain':true,
-      'isSun':false
-    },
-    '15':{
-      'isRain':false,
-      'isSun':true
-    },
-    '16':{
-      'isRain':true,
-      'isSun':false
-    },
-    '17':{
-      'isRain':true,
-      'isSun':false
-    },
-    '18':{
-      'isRain':false,
-      'isSun':true
-    },
-    '19':{
-      'isRain':false,
-      'isSun':true
-    },
-    '20':{
-      'isRain':false,
-      'isSun':true
-    },
-    '21':{
-      'isRain':false,
-      'isSun':true
-    },
-    '22':{
-      'isRain':false,
-      'isSun':true
-    }
-  }
-
-}
 
 const DEFAULTMINMONTHS = 6;
 const DEFAULTMAXMONTHS = 22;
 
+function getScreamFactor() {
+  if (CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 7) {
+    return "30";
+  } else if (CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 4) {
+    return "20";
+  } else if (CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 3) {
+    return "10";
+  } else { return "0"; }
+}
+
 if (Meteor.isClient) {
+
   Session.setDefault("slider", DEFAULTMINMONTHS);
   Session.setDefault("date", 'date1');
   Template.cheratingBeachViewPage.helpers({
     styles: styles,
     'isRain': function () {
-      return dataSet[Session.get("date")][Session.get("slider")].isRain;
+      return CHERATING_DATA[Session.get("date")][Session.get("slider")].isRain;
     },
     'isSun': function () {
-      return dataSet[Session.get("date")][Session.get("slider")].isSun;
+     return CHERATING_DATA[Session.get("date")][Session.get("slider")].isSun;
+    },
+    'suncreamFactor': function () {
+      // if (dataSet[Session.get("slider")].uvLevel >= 11) {
+      //   return "extreme";
+      // } else if (dataSet[Session.get("slider")].uvLevel >= 8) {
+      //   return "very high";
+      // } else if (dataSet[Session.get("slider")].uvLevel >= 6) {
+      //   return "high";
+      // } else if (dataSet[Session.get("slider")].uvLevel >= 3) {
+      //   return "moderate";
+      // } else if (dataSet[Session.get("slider")].uvLevel >= 0) {
+      //   return "low";
+      // }
+      return getScreamFactor();
+    },
+    'suncreamFactorIs': function (factor) {
+      return getScreamFactor() === factor;
+    },
+    
+    'needSunglass': function () {
+      return CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 3;
+    },
+    'needHat': function () {
+      return CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 6;
+    },
+    'needShades': function () {
+      return CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 8;
+    },
+    'warningMessage': function () {
+      if (CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 11) {
+        console.log('==> styles.imageOverlay:', styles.imageOverlay);
+        return styles.imageOverlay;
+      }
     }
   });
 
