@@ -26,7 +26,7 @@ if (Meteor.isClient) {
       return CHERATING_DATA[Session.get("date")][Session.get("slider")].isRain;
     },
     'isSun': function () {
-     return CHERATING_DATA[Session.get("date")][Session.get("slider")].isSun;
+      return CHERATING_DATA[Session.get("date")][Session.get("slider")].isSun;
     },
     'suncreamFactor': function () {
       // if (dataSet[Session.get("slider")].uvLevel >= 11) {
@@ -45,7 +45,24 @@ if (Meteor.isClient) {
     'suncreamFactorIs': function (factor) {
       return getScreamFactor() === factor;
     },
-    
+    'isSafetyRecommendationsDisplay': function () {
+      return CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 3 ? true:false;
+    },
+    'sunBathTimeSuggestion': function () {
+      var returnValue = '1 Hours';
+      var UVIndex = CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel;
+      if (UVIndex >= 3 && UVIndex <= 4) {
+        returnValue = '45 mins'
+      } else if (UVIndex >= 5 && UVIndex <= 6) {
+        returnValue = '30 min'
+      } else if (UVIndex >= 7 && UVIndex <= 9) {
+        returnValue = '15 min'
+      } else if (UVIndex >= 10) {
+        returnValue = '< 10 min'
+      }
+      return returnValue;
+    },
+
     'needSunglass': function () {
       return CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 3;
     },
@@ -67,13 +84,13 @@ if (Meteor.isClient) {
   });
 
   Template.cheratingBeachViewPage.events({
-    "change #date1": function() {
+    "change #date1": function () {
       Session.set("date", 'date1');
     },
-    "change #date2": function() {
+    "change #date2": function () {
       Session.set("date", 'date2');
     },
-    "change #date3": function() {
+    "change #date3": function () {
       Session.set("date", 'date3');
     }
   });

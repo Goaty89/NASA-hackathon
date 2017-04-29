@@ -12,9 +12,9 @@
     background: transparent;
     color: #333333;
     margin: 0 0 15px;
-    color: #0a287e;
+    color: #ff8800;
     margin-bottom: 0;
-    border: 1px solid #666666;
+    border: 1px solid #ff8800;
     transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
@@ -36,9 +36,18 @@
     display: flex;
     padding: 0 30px;
     overflow: hidden;
-    border: 1px solid #666666;
+    border: 1px solid #ff8800;
     border-top: none;
     min-height: 200px;
+}
+
+.accordContentBottomLine {
+    display: flex;
+    padding: 0px;
+    overflow: hidden;
+    border: 1px solid #ff8800;
+    border-top: none;
+    min-height: 1px;
 }
 
 .imageContainer {
