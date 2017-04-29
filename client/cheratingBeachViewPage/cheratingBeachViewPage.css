@@ -1,3 +1,16 @@
+.animatedBeach{background:url('/images/bg2.jpg') no-repeat;background-size: 1024px 617px;}
+h1{font-size:60px;color:#ffffff; font-weight:normal; font-family: 'Cabin Sketch',"Century Gothic", Helvetica;}
+h2{font-size:60px;color:#333; font-weight:normal; font-family: 'Cabin Sketch',"Century Gothic", Helvetica;padding-bottom:7px;}
+.mainHeader{padding:55px 0 0 30px;}
+.container { 
+    /*position:absolute; */
+top:0;left:0;/*width:1800px; height:1125px;*/}
+.video {display: block; 
+/*position:absolute; */
+width: 100%;
+top:507px; left:0px;margin-top:70px;padding:0;}
+.rocks {position:absolute; top:810px; left:650px; width: 400px;}
+	
 .beachBackgroundImg{
     height: 500px;
   width: 650px;
@@ -118,4 +131,5 @@
 
 .btnGroup {
     z-index: 1;
+    right: 0;
 }

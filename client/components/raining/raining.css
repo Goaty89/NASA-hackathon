@@ -18,6 +18,12 @@
     display: inline-block;
     height: 50px;
     width: 50px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }
 .rainy:after {
     -webkit-animation: rainy_shadow 5s ease-in-out infinite 1s;
@@ -34,6 +40,7 @@
     -webkit-transform: scale(.7);
     -ms-transform: scale(.7);
     transform: scale(.7);
+    display: none;
 }
 .rainy:before {
     -webkit-animation: rainy_rain .7s infinite linear;

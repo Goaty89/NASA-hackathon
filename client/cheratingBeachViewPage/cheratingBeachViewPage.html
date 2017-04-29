@@ -1,8 +1,5 @@
 <template name="cheratingBeachViewPage">
-    <div>
-        <h1>
-            Cherating Beach
-        </h1>
+    <div data-content="Warning: Please stay indoor unless you have applied sunscreen" class="{{warningMessage}} {{styles.imageOverlay}}">
         <div class="btn-group {{styles.btnGroup}}" style="position:absolute" data-toggle="buttons">
             <label class="btn btn-primary active">
             <input type="radio" name="date" id="date1" autocomplete="off" checked> 29 Apr 2017
@@ -14,21 +11,29 @@
             <input type="radio" name="date" id="date3" autocomplete="off"> 1 May 2017
         </label>
         </div>
-
-        <div class="{{styles.weatherBackgroundImg}}">
+    <div class={{styles.animatedBeach}} >
+		<div class="{{styles.container}}">
+            <h1 class="{{styles.mainHeader}}">Let's go to the<br>Cherating beach.</h1>
+			<video class="{{styles.video}}" autoplay="true" loop="loop">
+				<source src="/video/waves.ogv" type="video/ogg">
+				<source src="/video/waves.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
+			</video>
+			<!--<img src="/images/rocks.png" class="{{styles.rocks}}" />-->
+			<audio autoplay="true" loop="loop">
+			  <source src="/audio/bg-sound.mp3" type="audio/mpeg" />
+			</audio>
+			<!--<iframe src="drawing.html" id="drawing" width="630" height="500" style="position:relative; margin:0px 0 0 400px;z-index:2001;"></iframe>-->
+		</div>
+        </div>
+        </div>
+    <div>
+        <div>
             {{#if isRain}} {{> rainingBackground}} {{/if}} {{#if isSun}} {{> sunBackground}} {{/if}}
+            <!--{{#if isWind}} {{> windBackground}} {{/if}}-->
         </div>
 
-        <div class="{{styles.weatherBackgroundImg2}}">
-            {{#if isWind}} {{> windBackground}} {{/if}}
-        </div>
-
-        <div style="width: 20%;height: 20%;position: absolute;top: 30em; z-index: 1;">
+        <div style="width: 20%;height: 20%;position: absolute;top: 45em; right:10em; z-index: 1;">
             <img id='imgToast' src='/images/toast-white.png' />
-        </div>
-
-        <div data-content="Warning: Please stay indoor unless you have applied sunscreen" class="{{warningMessage}} {{styles.imageOverlay}}">
-            <img src='/images/cherating.jpg' />
         </div>
     </div>
     {{> HoursDurationFilter}}
