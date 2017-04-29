@@ -89,7 +89,6 @@
     position:relative;
 }
 .imageOverlay img {
-    width:100%;
     vertical-align:top;
 }
 .imageOverlay:after, .imageOverlay:before {
