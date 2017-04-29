@@ -94,8 +94,7 @@ if (Meteor.isClient) {
     },
     'warningMessage': function () {
       if (CHERATING_DATA[Session.get("date")][Session.get("slider")].uvLevel >= 11) {
-        console.log('==> styles.imageOverlay:', styles.imageOverlay);
-        return styles.imageOverlay;
+        return styles.showWarningMessage;
       }
     },
     'skinResult':function(){

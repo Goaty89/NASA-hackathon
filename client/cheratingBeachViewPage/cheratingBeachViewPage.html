@@ -1,7 +1,7 @@
 <template name="cheratingBeachViewPage">
     <div>
         <h1>
-            Cherating Beach View Page
+            Cherating Beach
         </h1>
         <div class="btn-group {{styles.btnGroup}}" style="position:absolute" data-toggle="buttons">
             <label class="btn btn-primary active">
@@ -27,8 +27,8 @@
             <img id='imgToast' src='/images/toast-white.png' />
         </div>
 
-        <div data-content="Warning: Please stay indoor unless you have applied sunscreen" class="{{warningMessage}}">
-            <img src='/images/cherating.jpg' style="width:100%" />
+        <div data-content="Warning: Please stay indoor unless you have applied sunscreen" class="{{warningMessage}} {{styles.imageOverlay}}">
+            <img src='/images/cherating.jpg' />
         </div>
     </div>
     {{> HoursDurationFilter}}

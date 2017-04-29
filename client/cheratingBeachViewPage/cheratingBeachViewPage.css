@@ -56,6 +56,7 @@
     justify-content: center;
     flex-direction: column;
     width: 150px;
+    transition: all 0.5s;
 }
 
 .sectionHead {
@@ -63,52 +64,28 @@
     margin-bottom: 40px;
 }
 
-/*.imageOverlay {
-    position:relative;
-}
-
-.imageOverlay img {
-    width:100%;
-    vertical-align:top;
-}*/
-
-/*.imageOverlay {
-    position:relative;
-    width:500px;
-    height:650px;
-}
-
-.imageOverlay img {
-    width:100%;
-    vertical-align:top;
-}
-
-.imageOverlay:after {
-    content:'\Warning: Please stay at indoor!!!';
-    position:absolute;
-    width: 100%; height: 50px;
-    bottom:0;
-    background:rgba(0,0,0,0.6);
-    opacity:1;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-}*/
-
 .imageOverlay {
     position:relative;
 }
+
 .imageOverlay img {
-    width:100%;
     vertical-align:top;
 }
-.imageOverlay:after, .imageOverlay:before {
+
+/*.imageOverlay:after, .imageOverlay:before {
     position:absolute;
-    opacity:1;
+    opacity:0;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
+}*/
+
+.showWarningMessage:before {
+    opacity:1 !important;
+    transition: all 0.5s;
 }
 
 .imageOverlay:before {
+    position:absolute;
     content: attr(data-content);
     width:100%;
     color:#fff;
@@ -119,6 +96,8 @@
     background:red;
     box-sizing:border-box;
     -moz-box-sizing:border-box;
+    opacity: 0;
+    transition: all 0.5s;
 }
 
 .weatherBackgroundImg{
