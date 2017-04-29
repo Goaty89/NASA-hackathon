@@ -21,7 +21,6 @@ function initialize() {
   geocoder = new google.maps.Geocoder();
   getLocation();
 
-  //GetMarkersFromXML();
   GetMarkersFromJSON();
 }
 
@@ -43,8 +42,6 @@ function showPosition(position) {
 }
 
 function AddMarker(lat, lng, title, icon) {
-  console.log('==> AddMarker:', lat, lng, title, icon);
-
   return new google.maps.Marker({
     position: new google.maps.LatLng(lat, lng),
     map: map,
@@ -104,6 +101,7 @@ function GetMarkersFromXML() {
 }
 
 function TestAJAX() {
+  var url: "http://api.wunderground.com/api/ade0476a71159cf7/conditions/q/5.480213,100.253903.json";
   // Assign handlers immediately after making the request,
   // and remember the jqxhr object for this request
   var jqxhr = $.get("../data.xml", function () {
