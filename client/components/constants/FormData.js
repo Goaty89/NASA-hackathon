@@ -162,227 +162,302 @@ export const CATEGORY_LIST = [
 export const CHERATING_DATA = {
   'date1': {
     '6': {
-      'uvLevel': 0,
+      'uvLevel': 11,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': true
     },
     '7': {
-      'uvLevel': 0,
+      'uvLevel': 5,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     },
     '8': {
-      'uvLevel': 0,
+      'uvLevel': 7,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': true
     },
     '9': {
-      'uvLevel': 2,
+      'uvLevel': 0,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': false
     },
     '10': {
       'uvLevel': 5,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     },
     '11': {
       'uvLevel': 8,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     },
     '12': {
       'uvLevel': 11,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': true
     },
     '13': {
-      'uvLevel': 11,
+      'uvLevel': 2,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': false
     },
     '14': {
-      'uvLevel': 11,
+      'uvLevel': 1,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': false
     },
     '15': {
       'uvLevel': 9,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': true
     },
     '16': {
-      'uvLevel': 6,
+      'uvLevel': 3,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': false
     },
     '17': {
       'uvLevel': 3,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': false
     },
     '18': {
-      'uvLevel': 1,
+      'uvLevel': 11,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': true
     },
     '19': {
-      'uvLevel': 0,
+      'uvLevel': 9,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     },
     '20': {
-      'uvLevel': 0,
+      'uvLevel': 11,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     },
     '21': {
-      'uvLevel': 0,
+      'uvLevel': 8,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': true
     },
     '22': {
       'uvLevel': 0,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     }
   },
   'date2': {
     '6': {
+      'uvLevel': 2,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': true
     },
     '7': {
+      'uvLevel': 3,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': false
     },
     '8': {
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': true
     },
     '9': {
+      'uvLevel': 1,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': false
     },
     '10': {
+      'uvLevel': 8,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': true
     },
     '11': {
+      'uvLevel': 1,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': true
     },
     '12': {
+      'uvLevel': 8,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     },
     '13': {
+      'uvLevel': 11,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     },
     '14': {
+      'uvLevel': 2,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': false
     },
     '15': {
+      'uvLevel': 7,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     },
     '16': {
+      'uvLevel': 8,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     },
     '17': {
+      'uvLevel': 1,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': true
     },
     '18': {
+      'uvLevel': 2,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': true
     },
     '19': {
+      'uvLevel': 11,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     },
     '20': {
+      'uvLevel': 10,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     },
     '21': {
+      'uvLevel': 2,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': false
     },
     '22': {
+      'uvLevel': 11,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     }
   },
   'date3': {
     '6': {
+      'uvLevel': 8,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': true
     },
     '7': {
+      'uvLevel': 10,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     },
     '8': {
+      'uvLevel': 11,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': true
     },
     '9': {
+      'uvLevel': 2,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': false
     },
     '10': {
+      'uvLevel': 10,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': false
     },
     '11': {
+      'uvLevel': 8,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': true
     },
     '12': {
+      'uvLevel': 10,
       'isRain': false,
       'isSun': true
     },
     '13': {
+      'uvLevel': 2,
       'isRain': true,
       'isSun': false
     },
     '14': {
+      'uvLevel': 1,
       'isRain': true,
-      'isSun': false
+      'isSun': false,
+      'isWind': true
     },
     '15': {
+      'uvLevel': 11,
       'isRain': false,
       'isSun': true
     },
     '16': {
+      'uvLevel': 2,
       'isRain': true,
       'isSun': false
     },
     '17': {
+      'uvLevel': 1,
       'isRain': true,
       'isSun': false
     },
     '18': {
+      'uvLevel': 8,
       'isRain': false,
-      'isSun': true
+      'isSun': true,
+      'isWind': true
     },
     '19': {
+      'uvLevel': 8,
       'isRain': false,
       'isSun': true
     },
     '20': {
+      'uvLevel': 11,
       'isRain': false,
       'isSun': true
     },
     '21': {
+      'uvLevel': 10,
       'isRain': false,
       'isSun': true
     },
     '22': {
+      'uvLevel': 9,
       'isRain': false,
       'isSun': true
     }

@@ -3,19 +3,13 @@ var song = new Audio('/music/song.mp3');
 Template.alarm.onRendered(function () {
   Session.set("done", false);
   Session.set("finish", true);
-  Session.set("timer",30);
-  var countdown = new ReactiveCountdown(30);
+  Session.set("timer",10);
+  var countdown = new ReactiveCountdown(10);
   Session.set("countDown", countdown);
 });
 
 Template.alarm.helpers({
   styles: styles,
-  getCountdown: function () {
-    if (countdown.get() != 0)
-      return countdown.get();
-    else
-      return "DONE";
-  },
   done: function () {
     return Session.get("done");
   },
@@ -27,15 +21,19 @@ Template.alarm.events({
   "click #turnAlarm": function () {
     song.pause();
     Session.set("done", false);
-    var countDown = Session.get("countDown");
-    countDown.start(function () {
+    var countdown = new ReactiveCountdown(Session.get("timer"));
+    countdown.start(function () {
       song.play();
       Session.set("done", true);
     });
   },
   "click #doneAlarm": function () {
     song.pause();
+    Session.set("done", false);
     Session.set("finish", true);
+    Session.set("timer",10);
+    var countdown = new ReactiveCountdown(10);
+    Session.set("countDown", countdown);
   },
   "click #start": function () {
     var countdown = new ReactiveCountdown(Session.get("timer"));

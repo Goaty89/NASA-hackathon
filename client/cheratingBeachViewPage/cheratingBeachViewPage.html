@@ -18,6 +18,9 @@
         <div class="{{styles.weatherBackgroundImg}}">
             {{#if isRain}} {{> rainingBackground}} {{/if}} {{#if isSun}} {{> sunBackground}} {{/if}}
         </div>
+        <div class="{{styles.weatherBackgroundImg2}}">
+            {{#if isWind}} {{> windBackground}} {{/if}}
+        </div>
         
         <div style="width: 20%;height: 20%;position: absolute;top: 30em; z-index: 1;">
             <img id='imgToast' src='/images/toast-white.png'/>

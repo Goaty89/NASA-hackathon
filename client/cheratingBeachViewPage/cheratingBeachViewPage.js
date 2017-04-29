@@ -28,6 +28,9 @@ if (Meteor.isClient) {
     'isSun': function () {
       return CHERATING_DATA[Session.get("date")][Session.get("slider")].isSun;
     },
+    'isWind': function () {
+      return CHERATING_DATA[Session.get("date")][Session.get("slider")].isWind;
+    },
     'suncreamFactor': function () {
       // if (dataSet[Session.get("slider")].uvLevel >= 11) {
       //   return "extreme";
