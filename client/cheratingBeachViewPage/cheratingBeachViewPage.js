@@ -97,9 +97,9 @@ if (Meteor.isClient) {
       }
       var skintone = Session.get('skinTone');
       if(skintone == "normal"){
-        timeValue += 15;
+        returnValue += 15;
       } else if (skintone == "dark"){
-        timeValue += 30;
+        returnValue += 30;
       }
       if(returnValue>60){
         var totalMin = returnValue;
